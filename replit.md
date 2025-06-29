@@ -17,7 +17,7 @@ This is a React-based single-page application for Lakshmi Online Center, a digit
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js framework
 - **Database**: PostgreSQL with Drizzle ORM for type-safe database operations
-- **Storage**: Currently using in-memory storage (MemStorage) with interface for easy database integration
+- **Storage**: PostgreSQL database with DatabaseStorage implementation for persistent data
 - **API**: RESTful endpoints for contact form submission and data retrieval
 
 ### Design System
@@ -48,8 +48,8 @@ This is a React-based single-page application for Lakshmi Online Center, a digit
 ### Backend Components
 1. **Storage Layer**
    - `IStorage` interface for data operations
-   - `MemStorage` implementation for development
-   - Ready for PostgreSQL integration with Drizzle ORM
+   - `DatabaseStorage` implementation with PostgreSQL
+   - Full database integration with Drizzle ORM
 
 2. **API Routes**
    - Contact form submission with validation
@@ -124,7 +124,9 @@ This is a React-based single-page application for Lakshmi Online Center, a digit
 - Component architecture supports feature additions
 
 ## Changelog
-- June 29, 2025. Initial setup
+- June 29, 2025: Initial setup with complete Lakshmi Online Center website
+- June 29, 2025: Added PostgreSQL database integration replacing in-memory storage
+- June 29, 2025: Enhanced button functionality with debugging and Font Awesome icons
 
 ## User Preferences
 

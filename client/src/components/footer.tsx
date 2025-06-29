@@ -3,9 +3,13 @@ import { businessInfo } from "@/lib/constants";
 
 export default function Footer() {
   const scrollToSection = (href: string) => {
+    console.log('Footer: Scrolling to section:', href);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      console.log('Footer: Element found, scrolling...');
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.warn('Footer: Element not found:', href);
     }
   };
 

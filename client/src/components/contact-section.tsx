@@ -57,7 +57,11 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Contact form: Submit button clicked');
+    console.log('Form data:', formData);
+    
     if (!formData.name || !formData.phone) {
+      console.warn('Contact form: Missing required fields');
       toast({
         title: "Required Fields Missing",
         description: "Please fill in your name and phone number.",
@@ -65,6 +69,8 @@ export default function ContactSection() {
       });
       return;
     }
+    
+    console.log('Contact form: Submitting data...');
     submitContactMutation.mutate(formData);
   };
 

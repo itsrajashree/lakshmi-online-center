@@ -15,9 +15,13 @@ export default function NavigationHeader() {
   ];
 
   const scrollToSection = (href: string) => {
+    console.log('Attempting to scroll to:', href);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      console.log('Element found, scrolling...');
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.warn('Element not found:', href);
     }
     setIsOpen(false);
   };

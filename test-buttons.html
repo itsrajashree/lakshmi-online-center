@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Test</title>
+</head>
+<body>
+    <script>
+        // Test navigation scrolling
+        function testNavigation() {
+            fetch('http://localhost:5000/')
+                .then(response => response.text())
+                .then(html => {
+                    console.log('Navigation test: Page loaded successfully');
+                    
+                    // Test contact form submission
+                    const testData = {
+                        name: 'John Doe',
+                        phone: '9876543210',
+                        email: 'john@example.com',
+                        service: 'passport',
+                        message: 'Need help with passport application'
+                    };
+                    
+                    return fetch('http://localhost:5000/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(testData)
+                    });
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Contact form test:', result);
+                    if (result.success) {
+                        console.log('✓ Contact form working correctly');
+                    } else {
+                        console.log('✗ Contact form has issues');
+                    }
+                })
+                .catch(error => {
+                    console.error('Test failed:', error);
+                });
+        }
+        
+        testNavigation();
+    </script>
+</body>
+</html>

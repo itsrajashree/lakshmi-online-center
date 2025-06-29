@@ -5,9 +5,13 @@ import { businessInfo } from "@/lib/constants";
 
 export default function HeroSection() {
   const scrollToServices = () => {
+    console.log('Hero: Scrolling to services section');
     const element = document.querySelector("#services");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      console.log('Hero: Services section found, scrolling...');
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.warn('Hero: Services section not found');
     }
   };
 
